@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nginx
+    app.kubernetes.io/instance: kubeedge-hodered
+  name: kubeedge-hodered-nodeport
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    nodePort: 30012
+  selector:
+    app: kubeedge-hodered
+  sessionAffinity: None
+  type: NodePort
