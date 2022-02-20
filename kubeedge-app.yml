@@ -11,7 +11,7 @@ spec:
   source:
     path: manifests
     repoURL: https://github.com/rlopezv/kubeedge-nodered-gitops.git
-    targetRevision: HEAD
+    targetRevision: master
   syncPolicy:
     syncOptions:
     - CreateNamespace=true

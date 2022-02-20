@@ -1,18 +1,15 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: DaemonSet
 metadata:
-  name: nginx-deployment
-  labels:
-    app: nginx
+  name: http-daemonset
 spec:
-  replicas: 3
   selector:
-    matchLabels:
-      app: nginx
+      matchLabels:
+        name: http-daemonset
   template:
     metadata:
       labels:
-        app: nginx
+        name: http-daemonset 
     spec:
       affinity:
         nodeAffinity:
@@ -22,9 +19,7 @@ spec:
                 - key: node-role.kubernetes.io/edge
                   operator: Exists
                 - key: node-role.kubernetes.io/agent
-                  operator: Exists    
+                  operator: Exists  
       containers:
-      - name: nginx
-        image: nginx
-        ports:
-        - containerPort: 80
+       - name: httpd
+         image: httpd

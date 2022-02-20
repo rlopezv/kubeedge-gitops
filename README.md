@@ -12,6 +12,16 @@ It also includes the the manifest required to register it in argo-cd automatical
 - kubeedge-project.yml
 - kubeedge-app.yml
 
+Creating project
+```
+kubectl apply -f kubeedge-project.yml -n argo-cd
+```
+
+
+Creating application
+```
+kubectl apply -f kubeedge-app.yml -n argo-cd
+```
 
 ## Notes
 
