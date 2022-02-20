@@ -9,8 +9,8 @@ spec:
     server: https://kubernetes.default.svc
   project: kubeedge-project
   source:
-    path: argocd/kubeedge-app/
-    repoURL: https://github.com/rlopezv/gitops.git
+    path: manifests
+    repoURL: https://github.com/rlopezv/kubeedge-nodered-gitops.git
     targetRevision: HEAD
   syncPolicy:
     syncOptions:

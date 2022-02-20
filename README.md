@@ -9,6 +9,7 @@ The manifests required for deployment are included in [folder](manifests). Inclu
 
 It also includes the the manifest required to register it in argo-cd automatically.
 
+- kubeedge-project.yml
 - kubeedge-app.yml
 
 
