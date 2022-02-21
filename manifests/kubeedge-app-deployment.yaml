@@ -20,9 +20,9 @@ spec:
             nodeSelectorTerms:
               - matchExpressions:
                 - key: node-role.kubernetes.io/edge
-                  operator: DoesNotExist
+                  operator: Exists
                 - key: node-role.kubernetes.io/agent
-                  operator: DoesNotExist    
+                  operator: Exists   
       containers:
       - name: nginx
         image: nginx
