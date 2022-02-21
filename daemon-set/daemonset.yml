@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: http-daemonset
+  name: kubeedge-daemonset
 spec:
   selector:
       matchLabels:
-        name: http-daemonset
+        name: kubeedge-daemonset
   template:
     metadata:
       labels:
-        name: http-daemonset 
+        name: kubeedge-daemonset 
     spec:
       affinity:
         nodeAffinity:
@@ -17,9 +17,9 @@ spec:
             nodeSelectorTerms:
               - matchExpressions:
                 - key: node-role.kubernetes.io/edge
-                  operator: Exists
+                  operator: DoesNotExist
                 - key: node-role.kubernetes.io/agent
-                  operator: Exists  
+                  operator: DoesNotExist 
       containers:
        - name: httpd
          image: httpd

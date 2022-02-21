@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubeedge-daemonset
+  namespace: argo-cd
+spec:
+  destination:
+    namespace: kubeedge-daemonset
+    server: https://kubernetes.default.svc
+  project: kubeedge-project
+  source:
+    path: daemon-set
+    repoURL: https://github.com/rlopezv/kubeedge-nodered-gitops.git
+    targetRevision: master
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
